@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { SCHEDULE_WINDOW_DAYS } from '../data/schedules';
 import './DateStrip.css';
 
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -26,7 +27,7 @@ export function formatDateDisplay(isoStr) {
 }
 
 /** Build an array of { date: Date, iso: string, ... } for the strip. */
-function buildDays(count = 10) {
+export function buildDays(count = SCHEDULE_WINDOW_DAYS) {
   const days = [];
   const now = new Date();
   for (let i = 0; i < count; i++) {
@@ -44,9 +45,9 @@ function buildDays(count = 10) {
   return days;
 }
 
-export function DateStrip({ selectedDate, onSelectDate }) {
+export function DateStrip({ selectedDate, onSelectDate, count = SCHEDULE_WINDOW_DAYS }) {
   const scrollRef = useRef(null);
-  const days = buildDays(10);
+  const days = buildDays(count);
 
   const scroll = (dir) => {
     if (!scrollRef.current) return;
