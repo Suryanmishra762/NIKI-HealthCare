@@ -1,0 +1,258 @@
+/* ==========================================================================
+   DoctorCard - Premium Editorial Style
+   Prominent Image, Fine Borders, Controlled Zoom, Clean Hierarchy
+   ========================================================================== */
+
+.doctor-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), 
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.doctor-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.doctor-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Image Container */
+.doctor-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  overflow: hidden;
+  background-color: var(--color-surface-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.doctor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.doctor-card:hover .doctor-image {
+  transform: scale(1.03);
+}
+
+/* Fallback Portrait Frame */
+.doctor-image-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0c2340 0%, #16365c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.fallback-monogram-circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.fallback-initials {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.fallback-watermark {
+  position: absolute;
+  right: -10px;
+  bottom: -15px;
+  color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+/* Status Badge */
+.doctor-availability-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(4px);
+  z-index: 3;
+}
+
+.doctor-availability-badge.available {
+  background-color: rgba(237, 248, 244, 0.94);
+  color: var(--color-status-available);
+  border: 1px solid var(--color-accent-border);
+}
+
+.doctor-availability-badge.scheduled {
+  background-color: rgba(248, 250, 252, 0.94);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.availability-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-status-available);
+}
+
+.scheduled-dot {
+  background-color: var(--color-text-muted);
+}
+
+/* Info Panel */
+.doctor-info-panel {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.doctor-specialty-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.doctor-specialty-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.doctor-experience-tag {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-subtle);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.doctor-card-name {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: 2px;
+  line-height: 1.25;
+}
+
+.doctor-card-qualifications {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.doctor-card-title {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+/* Card Bottom */
+.doctor-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.doctor-view-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
+}
+
+.profile-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.doctor-card:hover .doctor-view-profile {
+  color: var(--color-accent);
+}
+
+.doctor-card:hover .profile-arrow {
+  transform: translateX(3px);
+}
+
+.doctor-room-indicator {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Mobile Responsive Adjustments (Phones ~360px – 430px)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .doctor-image-container {
+    aspect-ratio: 16 / 11;
+    max-height: 240px;
+  }
+
+  .doctor-image {
+    object-position: top center;
+  }
+
+  .doctor-info-panel {
+    padding: var(--space-4);
+  }
+
+  .doctor-card-name {
+    font-size: 1.0625rem;
+  }
+
+  .doctor-card-title {
+    margin-bottom: var(--space-3);
+  }
+
+  .doctor-availability-badge {
+    top: 10px;
+    left: 10px;
+    font-size: 0.625rem;
+    padding: 2px 7px;
+  }
+}

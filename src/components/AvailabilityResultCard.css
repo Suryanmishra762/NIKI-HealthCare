@@ -1,0 +1,286 @@
+/* ==========================================================================
+   AvailabilityResultCard — Premium Result in Navy Context
+   Uses the established DoctorCard visual language but adapted
+   for horizontal layout inside the dark availability section.
+   ========================================================================== */
+
+.avail-result-card {
+  display: flex;
+  gap: var(--space-5);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.avail-result-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ── Image ──────────────────────────────── */
+.avail-result-image {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(12, 35, 64, 0.8);
+}
+
+.avail-result-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.avail-result-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #16365c, #0c2340);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avail-result-initials {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+/* ── Body ───────────────────────────────── */
+.avail-result-body {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.avail-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.avail-result-specialty {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-border);
+}
+
+.avail-result-name {
+  font-size: 1.0625rem;
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+.avail-result-qualifications {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.avail-result-experience {
+  flex-shrink: 0;
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-medium);
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+/* ── Room strip — from doctor.room ──────── */
+.avail-result-room-strip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-xs);
+  color: #cbd5e1;
+  margin-bottom: var(--space-2);
+}
+
+.avail-room-text {
+  color: #cbd5e1;
+}
+
+/* ── Slots ──────────────────────────────── */
+.avail-result-slots {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  padding: var(--space-3) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.avail-slot-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-xs);
+}
+
+.avail-slot-status-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 100px;
+}
+
+.avail-slot-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.avail-slot-dot.status-available {
+  background-color: var(--color-accent);
+}
+
+.avail-slot-dot.status-busy {
+  background-color: #d97706;
+}
+
+.avail-slot-label {
+  font-weight: var(--font-weight-semibold);
+}
+
+.avail-slot-label.status-available {
+  color: var(--color-accent-border);
+}
+
+.avail-slot-label.status-busy {
+  color: #fbbf24;
+}
+
+.avail-slot-time-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #cbd5e1;
+}
+
+.avail-slot-icon {
+  color: #64748b;
+}
+
+.avail-slot-time {
+  font-weight: var(--font-weight-semibold);
+  color: #ffffff;
+}
+
+/* ── Action ─────────────────────────────── */
+.avail-result-action {
+  margin-top: auto;
+}
+
+.avail-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-border);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.avail-profile-link:hover {
+  color: #ffffff;
+}
+
+.avail-profile-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.avail-profile-link:hover .avail-profile-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Responsive — Mobile (Phones ~360px – 430px) ────────────────── */
+@media (max-width: 640px) {
+  .avail-result-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .avail-result-image {
+    width: 76px;
+    height: 76px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .avail-result-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    margin-bottom: var(--space-2);
+  }
+
+  .avail-result-name {
+    font-size: 0.9375rem;
+  }
+
+  .avail-result-experience {
+    align-self: flex-start;
+    font-size: 0.625rem;
+    padding: 1px 6px;
+  }
+
+  .avail-result-room-strip {
+    font-size: 0.6875rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .avail-result-slots {
+    padding: var(--space-2) 0;
+    margin-bottom: var(--space-2);
+    gap: var(--space-2);
+  }
+
+  .avail-slot-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.6875rem;
+  }
+
+  .avail-slot-status-group {
+    min-width: unset;
+  }
+
+  .avail-slot-time-group {
+    font-size: 0.6875rem;
+  }
+
+  .avail-profile-link {
+    font-size: 0.75rem;
+  }
+}
